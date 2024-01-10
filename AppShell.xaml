@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Proiect_Retete.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Proiect_Retete"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent
+ Title="Welcome"
+ ContentTemplate="{DataTemplate local:MainPage}"
+ />
+
+        <ShellContent
+ Title="My Recipes"
+ ContentTemplate="{DataTemplate local:RecipeEntryPage}"
+ />
+        <ShellContent
+ Title="My Restaurants"
+ ContentTemplate="{DataTemplate local:RestaurantEntryPage}"
+ />
+        <ShellContent
+ Title="About"
+ ContentTemplate="{DataTemplate local:AboutPage}"
+ />
+
+    </TabBar>
+</Shell>
