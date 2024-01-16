@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
+﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
 
 namespace Proiect_Retete.Models
 {
-   public class Ingredient
+    public class Ingredient
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Description { get; set; }
-        [OneToMany]
-        public List<ListIngredient> ListIngredients { get; set; }
 
+        // Foreign key relationship with Recipe
+        [ForeignKey(typeof(Recipe))]
+        public int RecipeID { get; set; }
+
+        // Reference to the associated recipe
+        [ManyToOne]
+        public Recipe AssociatedRecipe { get; set; }
     }
 }

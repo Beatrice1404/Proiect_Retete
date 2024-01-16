@@ -103,6 +103,9 @@ namespace Proiect_Retete.Data
             return _database.GetAllWithChildrenAsync<Recipe>(recursive: true);
         }
 
-
+        public Task<Ingredient> GetIngredientByNameAsync(string description)
+        {
+            return _database.Table<Ingredient>().Where(i => i.Description == description).FirstOrDefaultAsync();
+        }
     }
 }

@@ -20,6 +20,10 @@ namespace Proiect_Retete.Models
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
         public Restaurant AssociatedRestaurant { get; set; }
 
+        // Property to hold the associated ingredients
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeRead)]
+        public List<Ingredient> Ingredients { get; set; }
+
         // Add a property to get RestaurantDetails based on the associated restaurant
         public string RestaurantDetails => AssociatedRestaurant?.RestaurantDetails;
     }
