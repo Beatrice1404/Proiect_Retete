@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
+﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
 
 namespace Proiect_Retete.Models
@@ -17,7 +12,15 @@ namespace Proiect_Retete.Models
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
+        // Foreign key relationship with Restaurant
         [ForeignKey(typeof(Restaurant))]
         public int RestaurantID { get; set; }
+
+        // Reference to the associated restaurant
+        [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
+        public Restaurant AssociatedRestaurant { get; set; }
+
+        // Add a property to get RestaurantDetails based on the associated restaurant
+        public string RestaurantDetails => AssociatedRestaurant?.RestaurantDetails;
     }
 }

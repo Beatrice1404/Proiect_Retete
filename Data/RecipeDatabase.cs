@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using SQLiteNetExtensionsAsync.Extensions;
 using Proiect_Retete.Models;
 
 
@@ -97,6 +98,11 @@ namespace Proiect_Retete.Data
                 return _database.InsertAsync(restaurant);
             }
         }
+        public Task<List<Recipe>> GetRecipesWithRestaurantsAsync()
+        {
+            return _database.GetAllWithChildrenAsync<Recipe>(recursive: true);
+        }
+
 
     }
 }
